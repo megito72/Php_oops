@@ -1,23 +1,30 @@
 <?php
-//Abstract Class - Abstract class is a class that cannot be instantiated. It can only be inherited from.
-// Abstract Calls have atleast one abstract function.
-// Abstract Functions are defined as public and abstract.
-// Abstract Functions cannot have body.
-// Abstract Functions can have parameters.
-abstract class class1
+abstract class bank
 {
-    const val = 2;
-    abstract function test();
-}
-
-class class2 extends class1
-{
-    function test()
+    var $number;
+    abstract function id_proof_check();
+    function mobile_number_check($number)
     {
-        echo "The Value of Variable X in Class is:" . self::val . "<br>";
+        if ($number == "") {
+            echo "Empty<br>";
+        } else {
+            echo "Valid<br>";
+        }
     }
 }
 
+class sbi extends bank
+{
+    public $unum = 1234567890;
+    function __construct()
+    {
+        $this->mobile_number_check($this->unum);
+    }
+    function id_proof_check()
+    {
+        echo "ID Proof is Valid<br>";
+    }
+}
 
-$obj = new class2();
-$obj->test();
+$obj = new sbi();
+$obj->id_proof_check();
