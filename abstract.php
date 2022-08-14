@@ -6,9 +6,9 @@ abstract class bank
     function mobile_number_check($number)
     {
         if ($number == "") {
-            echo "Empty<br>";
+            echo "Empty Or Incorrect Number<br>";
         } else {
-            echo "Valid<br>";
+            echo "Valid: - Because Number is " . strlen($number) . " Digit Long<br>";
         }
     }
 }
